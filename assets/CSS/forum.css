@@ -1,0 +1,148 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333; /* Default text color */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Added transition for text color */
+}
+
+body.dark-mode {
+    background-color: black; /* Dark background color */
+}
+
+.dark-mode .post {
+    color: white;
+    background-color: grey;
+}
+header {
+    background-color: rgb(255, 102, 0);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, rgb(255, 102, 0), #b30000);
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.2), transparent, rgba(0, 0, 0, 0.2));
+    transition: transform 0.5s;
+    z-index: -1;
+}
+
+header:hover::before {
+    transform: translateX(100%);
+}
+
+main {
+    padding: 20px;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form label,
+form input,
+form textarea,
+form button {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    color: inherit; /* Inherit text color */
+}
+
+form button {
+    background-color: rgb(255, 102, 0);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    background-image: linear-gradient(to bottom, rgb(255, 102, 0), #b30000);
+}
+
+footer {
+    background-color: rgb(255, 102, 0);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom, rgb(255, 102, 0), #b30000);
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+footer a:hover {
+    transform: translateY(-2px);
+}
+
+.post {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+#toggleMode {
+    background-color: black;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+}
+
+#toggleMode:hover {
+    transform: translateY(-2px);
+}
+
+/* Dark mode button styling */
+body.dark-mode #toggleMode,
+body.dark-mode #backButton {
+    background-color: #fff;
+    color: #333;
+}
+
+body.dark-mode #toggleMode:hover {
+    background-color: #e0e0e0;
+}
+
+#backButton {
+    background-color: black;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.2s ease
+}
+
+#backButton:hover {
+    transform: translateY(-2px);
+}
+
+.left-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.left-buttons button {
+    margin-bottom: 20px;
+}
