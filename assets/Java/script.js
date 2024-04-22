@@ -1,16 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('blogForm');
     const toggleModeButton = document.getElementById('toggleMode');
-    
-    // Toggle light/dark mode on button click
-    let isDarkMode = localStorage.getItem('darkMode') || false;
-    toggleModeButton.addEventListener('click', () => {
-        isDarkMode = !isDarkMode;
-        document.body.classList.toggle('dark-mode', isDarkMode);
-        document.getElementById('username').classList.toggle('dark-mode', isDarkMode)
-        toggleModeButton.textContent = isDarkMode ? 'Dark Mode' : 'Light Mode';
-        localStorage.setItem('darkMode', isDarkMode)
-    });
+
+     // Check if dark mode is enabled in local storage
+     let isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+     // Set initial mode based on local storage
+     if (isDarkMode) {
+         enableDarkMode();
+     } else {
+         enableLightMode();
+     }
+ 
+     // Toggle mode button click event
+     toggleModeButton.addEventListener('click', () => {
+         if (isDarkMode) {
+             enableLightMode();
+             localStorage.setItem('darkMode', 'false');
+         } else {
+             enableDarkMode();
+             localStorage.setItem('darkMode', 'true');
+         }
+     });
+ 
+     // Function to enable light mode
+     function enableLightMode() {
+         document.body.classList.remove('dark-mode');
+         toggleModeButton.textContent = 'Dark Mode';
+         isDarkMode = false;
+     }
+ 
+     // Function to enable dark mode
+     function enableDarkMode() {
+         document.body.classList.add('dark-mode');
+         toggleModeButton.textContent = 'Light Mode';
+         isDarkMode = true;
+     }
+
+    // Function to enable light mode
+    function enableLightMode() {
+        document.body.classList.remove('dark-mode');
+        toggleModeButton.textContent = 'Dark Mode';
+        isDarkMode = false;
+    }
+
+    // Function to enable dark mode
+    function enableDarkMode() {
+        document.body.classList.add('dark-mode');
+        toggleModeButton.textContent = 'Light Mode';
+        isDarkMode = true;
+    }
+
     
 
     // Form submission
