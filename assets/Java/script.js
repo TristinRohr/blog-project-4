@@ -3,12 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleModeButton = document.getElementById('toggleMode');
     
     // Toggle light/dark mode on button click
-    let isDarkMode = false;
+    let isDarkMode = localStorage.getItem('darkMode') || false;
     toggleModeButton.addEventListener('click', () => {
         isDarkMode = !isDarkMode;
         document.body.classList.toggle('dark-mode', isDarkMode);
         document.getElementById('username').classList.toggle('dark-mode', isDarkMode)
         toggleModeButton.textContent = isDarkMode ? 'Dark Mode' : 'Light Mode';
+        localStorage.setItem('darkMode', isDarkMode)
     });
     
 

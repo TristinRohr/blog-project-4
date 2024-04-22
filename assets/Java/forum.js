@@ -20,14 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
             postList.appendChild(postElement);
         });
     }
-    let isDarkMode = false;
+    let isDarkMode = localStorage.getItem('darkMode') || false;
     toggleModeButton.addEventListener('click', () => {
         isDarkMode = !isDarkMode;
         document.body.classList.toggle('dark-mode', isDarkMode);
         toggleModeButton.textContent = isDarkMode ? 'Dark Mode' : 'Light Mode';
-        if (localStorage.getItem('isDarkMode') === 'true') {
-            toggleDarkMode();
-        }
+        // if (localStorage.getItem('darkMode') === 'true') {
+        // }
     });
 });
 
