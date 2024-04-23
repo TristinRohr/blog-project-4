@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('blogForm');
     const toggleModeButton = document.getElementById('toggleMode');
-
-     // Check if dark mode is enabled in local storage
-     let isDarkMode = localStorage.getItem('darkMode') === 'true';
+    
+    // Check if dark mode is enabled in local storage
+    let isDarkMode = localStorage.getItem('darkMode') === 'true';
 
      // Set initial mode based on local storage
      if (isDarkMode) {
@@ -36,22 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
          toggleModeButton.textContent = 'Light Mode';
          isDarkMode = true;
      }
-
-    // Function to enable light mode
-    function enableLightMode() {
-        document.body.classList.remove('dark-mode');
-        toggleModeButton.textContent = 'Dark Mode';
-        isDarkMode = false;
-    }
-
-    // Function to enable dark mode
-    function enableDarkMode() {
-        document.body.classList.add('dark-mode');
-        toggleModeButton.textContent = 'Light Mode';
-        isDarkMode = true;
-    }
-
-    
 
     // Form submission
     form.addEventListener('submit', (e) => {
