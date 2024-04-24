@@ -16,30 +16,35 @@ document.addEventListener('DOMContentLoaded', () => {
      toggleModeButton.addEventListener('click', () => {
          if (isDarkMode) {
              enableLightMode();
-             localStorage.setItem('darkMode', 'false');
+             localStorage.setItem('darkMode', isDarkMode);
          } else {
              enableDarkMode();
-             localStorage.setItem('darkMode', 'true');
+             localStorage.setItem('darkMode', isDarkMode);
          }
      });
- 
+     
      // Function to enable light mode
      function enableLightMode() {
-         document.body.classList.remove('dark-mode');
-         toggleModeButton.textContent = 'Dark Mode';
-         isDarkMode = false;
-     }
- 
-     // Function to enable dark mode
-     function enableDarkMode() {
-         document.body.classList.add('dark-mode');
-         toggleModeButton.textContent = 'Light Mode';
-         isDarkMode = true;
-     }
+        document.body.classList.remove('dark-mode');
+        // Show the body after the page is loaded
+        document.body.classList.remove('hidden')
+        toggleModeButton.textContent = 'Dark Mode';
+        isDarkMode = false;
+        }
+        
+        // Function to enable dark mode
+        function enableDarkMode() {
+            document.body.classList.add('dark-mode');
+             // Show the body after the page is loaded
+            document.body.classList.remove('hidden');
+            toggleModeButton.textContent = 'Light Mode';
+            isDarkMode = true;
+        }
+        
 
-    // Form submission
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
+        // Form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
         const username = document.getElementById('username').value;
         const title = document.getElementById('title').value;
         const content = document.getElementById('content').value;
